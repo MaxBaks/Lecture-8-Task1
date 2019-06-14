@@ -24,12 +24,9 @@ class Team {
   addAll(...heroes) {
     try {
       for (const hero of heroes) {
-        const heroForSearch = this.toArray().find(e => e.name === hero.name);
-        if (heroForSearch === undefined) {
-          const response = this.add(hero);
-          if (response !== this.characters) {
-            throw response;
-          }
+        const response = this.add(hero);
+        if (response !== this.characters) {
+          throw response;
         }
       }
       return this.characters;
